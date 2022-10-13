@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!--  &lt;!&ndash; CSS only &ndash;&gt;-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to create an awesome awesome CSS slideshow</title>
+  <link rel="stylesheet" type="text/css" href="home1.component.css">
+  <style>
+  body,div{
+  background-color:white ;
+  }
+
+        .addition {
+            margin-left: 35%;
+            margin-top: 10%;
+        }
+
+        .slideshow {
+            position: centre;
+            margin: 0 auto;
+            padding-top: 0px;
+            height: 250px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            margin: auto;
+            width: 190px;
+            perspective: 1000px;
+            position: relative;
+            padding-top 80px;
+        }
+
+        .content-carrousel {
+            padding-left: 40px;
+            width: 100%;
+            position: absolute;
+            float: right;
+            animation: rotar 15s infinite linear;
+            transform-style: preserve-3d;
+        }
+
+        .content-carrousel:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        .content-carrousel figure {
+            width: 100%;
+            height: 120px;
+            border: 1px solid #4d444d;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .content-carrousel figure:nth-child(1) {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(3) {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(4) {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(5) {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(6) {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+
+        .content-carrousel figure:nth-child(7) {
+            transform: rotateY(360deg) translateZ(300px);
+        }
+
+        .slideshow {
+            position: absolute;
+            box-shadow: 0px 0pz 20px 0px #000;
+            border-radius: 2px;
+        }
+
+        .content-carrousel img {
+            image-rendering: auto;
+            transition: all 300ms;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-carrousel img:hover {
+            transform: scale(1.2);
+            transition: all 300ms;
+        }
+
+        @keyframes rotar {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#frame {
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#frame input[type=radio] {
+    display: none;
+}
+
+#frame label {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#slides {
+    padding: 10px;
+    border: 5px solid #0F0;
+    background: #00F;
+    position: relative;
+    z-index: 1;
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#frame1:checked~#slides .inner {
+    margin-left: 0;
+}
+
+#frame2:checked~#slides .inner {
+    margin-left: -100%;
+}
+
+#frame3:checked~#slides .inner {
+    margin-left: -200%;
+}
+
+#frame4:checked~#slides .inner {
+    margin-left: -300%;
+}
+
+#slides .inner {
+    transition: margin-left 800ms
+        cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 300px;
+}
+
+#slides .frame {
+    width: 25%;
+    float: left;
+    display: flex;
+    height: 100%;
+    color: #FFF;
+
+}
+
+#slides .frame_1 {
+    background: #90C;
+}
+
+#slides .frame_2 {
+    background: #F90;
+}
+
+#slides .frame_3 {
+    background: #606;
+}
+
+#slides .frame_4 {
+    background: #C00;
+}
+
+#controls {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    position: relative;
+}
+
+#controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+}
+
+#controls label:hover {
+    opacity: 1;
+}
+
+#frame1:checked~#controls label:nth-child(2),
+#frame2:checked~#controls label:nth-child(3),
+#frame3:checked~#controls label:nth-child(4),
+#frame4:checked~#controls label:nth-child(1) {
+    background:
+url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+    float: right;
+    margin: 0 -50px 0 0;
+    display: block;
+}
+
+#frame1:checked~#controls label:nth-last-child(2),
+#frame2:checked~#controls label:nth-last-child(3),
+#frame3:checked~#controls label:nth-last-child(4),
+#frame4:checked~#controls label:nth-last-child(1) {
+    background:
+url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+    float: left;
+    margin: 0 0 0 -50px;
+    display: block;
+}
+
+#bullets {
+    margin: 150px 0 0;
+    text-align: center;
+}
+
+#bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+#frame1:checked~#bullets label:nth-child(1),
+#frame2:checked~#bullets label:nth-child(2),
+#frame3:checked~#bullets label:nth-child(3),
+#frame4:checked~#bullets label:nth-child(4) {
+    background: #444;
+}
+body {
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  font-family: "Open Sans";
+}
+
+.education {
+  --bg-color: #ffd861;
+  --bg-color-light: #ffeeba;
+  --text-color-hover: #4C5656;
+  --box-shadow-color: rgba(255, 215, 97, 0.48);
+}
+
+.credentialing {
+  --bg-color: #B8F9D3;
+  --bg-color-light: #e2fced;
+  --text-color-hover: #4C5656;
+  --box-shadow-color: rgba(184, 249, 211, 0.48);
+}
+
+.wallet {
+  --bg-color: #CEB2FC;
+  --bg-color-light: #F0E7FF;
+  --text-color-hover: #fff;
+  --box-shadow-color: rgba(206, 178, 252, 0.48);
+}
+
+.human-resources {
+  --bg-color: #DCE9FF;
+  --bg-color-light: #f1f7ff;
+  --text-color-hover: #4C5656;
+  --box-shadow-color: rgba(220, 233, 255, 0.48);
+}
+
+.card {
+  width: 220px;
+  height: 321px;
+  background: #fff;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px var(--box-shadow-color);
+}
+
+.card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+.card:hover .circle {
+  border-color: var(--bg-color-light);
+  background: var(--bg-color);
+}
+
+.card:hover .circle:after {
+  background: var(--bg-color-light);
+}
+
+.card:hover p {
+  color: var(--text-color-hover);
+}
+
+.card:active {
+  transform: scale(1) translateZ(0);
+  box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+    0 15px 24px var(--box-shadow-color);
+}
+
+.card p {
+  font-size: 17px;
+  color: #4C5656;
+  margin-top: 30px;
+  z-index: 1000;
+  transition: color 0.3s ease-out;
+}
+
+.circle {
+  width: 131px;
+  height: 131px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-out;
+}
+
+.circle:after {
+  content: "";
+  width: 118px;
+  height: 118px;
+  display: block;
+  position: absolute;
+  background: var(--bg-color);
+  border-radius: 50%;
+  top: 7px;
+  left: 7px;
+  transition: opacity 0.3s ease-out;
+}
+
+.circle svg {
+  z-index: 10000;
+  transform: translateZ(0);
+}
+
+.overlay {
+  width: 118px;
+  position: absolute;
+  height: 118px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  top: 70px;
+  left: 50px;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
+
+<!--@media screen and (max-width: 900px) {-->
+<!--    #frame1:checked~#controls label:nth-child(2),-->
+<!--    #frame2:checked~#controls label:nth-child(3),-->
+<!--    #frame3:checked~#controls label:nth-child(4),-->
+<!--    #frame4:checked~#controls label:nth-child(1),-->
+<!--    #frame1:checked~#controls label:nth-last-child(2),-->
+<!--    #frame2:checked~#controls label:nth-last-child(3),-->
+<!--    #frame3:checked~#controls label:nth-last-child(4),-->
+<!--    #frame4:checked~#controls label:nth-last-child(1) {-->
+<!--        margin: 0;-->
+<!--    }-->
+    #slides {
+        max-width: calc(100% - 140px);
+        margin: 0 auto;
+    }
+
+#footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color:black;
+    color:white;
+}
+.price .header {
+  background-color: #111;
+  color: white;
+  font-size: 25px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 550px) {
+  .columns {
+    padding: 10px 20px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div style="d-flex">
+
+    <span>
+    <img src="assets/girls.jpg" style="width:100%;height:500px;">
+  </span>
+    <div style="position:relative;background-color:transparent;top:-25rem;left:2rem">
+      <h1 style="color:white;width:35rem;font-size:50px">Your favourite ₹750 plan is now at ₹699 Plan!</h1><br>
+      <p style="color:white;">Continue to enjoy 2GB/Days  of data, unlimited calls, Voizfoncia app, & more of 90 Days</p>
+   <a href="http://localhost:4200/prepaid"> <button style="background-color:blue;border:0;width:20%;padding:5px;color:white;margin-top:3%;font-size:20px">Recharge</button></a>
+  </div>
+  </div>
+</div>
+<div class="container" style="display:flex;justify-content:space-between;position:relative;top:-20rem">
+
+<div class="addition" style="position:relative;right:10rem">
+        <section class="slideshow">
+            <div class="content">
+                <div class="content-carrousel">
+                    <figure class="shadow">
+                        <img src="assets/help21.png">
+                    </figure>
+                    <figure class="shadow">
+                        <img src="assets/help14.png">
+                    </figure>
+                    <figure class="shadow">
+                        <img src="assets/help15.png">
+                    </figure>
+                    <figure class="shadow">
+                        <img src="assets/img4.png">
+                    </figure>
+                    <figure class="shadow">
+                        <img src="assets/img23.png">
+                    </figure>
+                    <figure class="shadow">
+                        <img src="assets/help118.png">
+                    </figure>
+                </div>
+            </div>
+        </section>
+</div>
+<br>
+<br>
+<br>
+<div class="slides slowFade" style="width:25rem;height:20rem;position:relative;top:5rem;">
+        <div class="slide">
+            <img src="assets/zoo5.png">
+        </div>
+        <div class="slide">
+            <img src="assets/zoo8.png.jpg" alt="img" width="30%"/>
+        </div>
+        <div class="slide">
+            <img src="assets/img9.jpg"  width="30%" alt="img"/>
+        </div>
+        <div class="slide">
+            <img src="assets/img13.png" width="30%" alt="img"/>
+        </div>
+    </div>
+</div>
+<div class="container" style="position:relative;top:-10rem">
+  <div style="d-flex">
+
+    <span>
+    <img src="assets/socialmedia.jpg" style="width:100%;height:500px;">
+  </span>
+    <div style="position:relative;background-color:transparent;top:-25rem;left:2rem">
+      <h1 style="color:white;width:35rem;font-size:50px"><b>Connect globally by purchasing a prepaid Voiz-Fonica sim</b></h1><br>
+      <p style="color:white;"><b>Continue to enjoy 2GB/Days  of data, unlimited calls, Voizfoncia app, & more of 90 Days</b></p>
+   <a href="http://localhost:4200/prepaid"> <button style="background-color:blue;border:0;width:20%;padding:5px;color:white;margin-top:3%;font-size:20px">Recharge</button></a>
+  </div>
+  </div>
+</div>
+<section style="position:relative;top:-30rem;">
+  <div class="container-fluid card" style="width:100%;height:30rem;;position:relative;display:flex;justify-content:space-around;background-color:white">
+    <div style="position:relative;top:12rem;right:10rem;background-color:white;font-size:20px;">
+      <h1><b> Know what a digital monsoon feels like?</b></h1>
+      <h5><b>Just buy a Voiz-Fonica dongle for ₹2,800 and get cashback worth ₹1,500.</b></h5>
+      <button style="width:30%;background-color:blue;padding:10px;color:white; border:0;margin-top:3rem;"><a href="http://localhost:4200/postpaid" style="color:white"><b>Buy Now</b></a></button>
+    </div>
+    <img src="assets/wifi3.png" style="position:relative;left:30%;background-color:white;" width="30%">
+  </div>
+</section>
+
+
+<section style="display:flex;justify-content:space-around;position:relative;top:-25rem">
+  <a href="/prepaid" class="card education">
+     <div class="overlay"></div>
+  <div class="circle">
+     <img src="assets/help1.png" width="110%" style="z-index:1">
+
+  </div>
+      <p><b>PREPAID PLANS</b></p>
+</a>
+
+<a href="#" class="card credentialing">
+     <div class="overlay"></div>
+  <div class="circle">
+
+    <img src="assets/help4.png" width="110%" style="z-index:1">
+
+  </div>
+  <p><b>CONTACT US</b></p>
+</a>
+<a href="http://127.0.0.1:8000/about" class="card wallet">
+     <div class="overlay"></div>
+  <div class="circle">
+
+    <img src="assets/help7.png" width="110%" style="z-index:1">
+
+  </div>
+  <p><b>ABOUT US</b></p>
+</a>
+<a href="/postpaid" class="card wallet">
+     <div class="overlay"></div>
+  <div class="circle">
+
+    <img src="assets/help12.png" width="110%" style="z-index:1">
+
+  </div>
+  <p><b>POSTPAID PLANS</b></p>
+</a>
+</section>
+<div class="container" style="position:relative;top:-15rem">
+  <div style="d-flex">
+
+    <span>
+    <img src="https://ourpacificoffice.com/wp-content/uploads/2020/07/CONTACT-BANNER-1920x852-1.jpg" style="width:100%;height:500px">
+  </span>
+    <div style="position:relative;background-color:transparent;top:-30rem;">
+      <h1 style="color:black;width:35rem;font-size:50px"><b>About Us</b></h1><br>
+      <p style="color:black;font-size:20px;"><b> Voizfonica is India's leading telecom service provider.The Company provides pan India Voice and Data services across 2G, 3G and 4G platform.With the large spectrum portfolio to support the growing demand for data and voice, the company is committed to deliver delightful customer experiences and contribute towards creating a truly 'Digital India' by enabling millions of citizens to connect and build a better tomorrow. The Company is developing infrastructure to introduce newer and smarter technologies, making both retail and enterprise customers future ready with innovative offerings, conveniently accessible through an ecosystem of digital channels as well as extensive on-ground presence. The Company is listed on National Stock Exchange (NSE) and Bombay Stock Exchange (BSE) in India.</b></p>
+  </div>
+  </div>
+</div>
+<div>
+<footer style="background-color:black;color:white;text-align:center;position:relative;top:-20rem">
+   <p>Contact Us:<br>
+          email-id: voizfonica@yahoo.co.in<br>
+          phone: 044-23987619<br>
+          © 2018 VoizFonica</p>
+</footer>
+  </div>
+</body>
+</html>

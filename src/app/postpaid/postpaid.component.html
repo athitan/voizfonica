@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+  </script>
+  <title>Document</title>
+  <style>
+    #footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color:black;
+    color:white;
+}
+ul,li {
+  list-style: none;
+}
+  </style>
+</head>
+<h1  align="center" style="background-color:#142027;color:white">Postpaid plans for Voizfonica</h1>
+
+<body>
+<h2 align="left" >RECOMMENDED PACKS</h2>
+<!--div class="container">
+<table *ngFor="let item of items">
+   <tr> <th>PlanName</th> <th> Calls </th> <th> Data </th> <th> Validity </th> </tr>
+  <tr> <th> item.name </th> <th> item.calls </th> <th> {{item.data}} </th> <th> {{item.validity}} </th> </tr>
+</table-->
+
+<section class="container d-fle">
+  <ul>
+<li *ngFor="let item of items">
+  <div class="row" style="position:relative;top:0.5rem">
+    <div class="container card col" style="width:25rem;background-color:#c4c3d0;color:black">
+      <h1 style="background-color:grey">{{item.pname}}</h1>
+      <div class="card-body row">
+        <span class="col">
+          <p><b>{{item.pname}}</b></p>
+          <p>Plan Name</p>
+        </span>
+        <span class="col">
+          <p><b>{{item.calls}}</b></p>
+          <p>Calls</p>
+        </span>
+        <span class="col">
+          <p> <b>{{item.data}}</b></p>
+          <p>Data</p>
+        </span>
+        <span class="col">
+          <p><b>{{item.validity}}</b></p>
+          <p>Validity</p>
+        </span>
+        <span class="col">
+          <p><b>{{item.amount}}</b></p>
+          <p>Amount</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</li>
+    </ul>
+</section>
+ {{ error?.message }}
+<br>
+<footer style="background-color:black;color:white;text-align:center;">
+   <p>Contact Us:<br>
+          email-id: voizfonica@yahoo.co.in<br>
+          phone: 044-23987619<br>
+          © 2018 VoizFonica</p>
+</footer>
+</body>
+</html>
